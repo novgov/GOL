@@ -31,26 +31,40 @@ int main() {
         displayGame(field);
         updateGame(field, newField);
         int key = getch();
-        int speed = 1000000;
+        int speed = 100000;
         usleep(speed); 
-        if (key >= '1' && key <= '4') {
-             int key = getch();
-        if (key >= '1' && key <= '4') {
+        if (key >= '0' && key <= '9') {
             switch (key) {
                 case 1:
-                    speed = 1000000;
+                    speed = 100000;
                     break;
                 case 2:
-                    speed = 2000000;
+                    speed = 200000;
                     break;
                 case 3:
-                    speed = 3000000;
+                    speed = 300000;
                     break;
                 case 4:
-                    speed = 9000000;
+                    speed = 400000;
                     break;
-                case 'p':
+                case 5:
+                    speed = 500000;
+                    break;
+                case 6:
+                    speed = 600000;
+                    break;
+                case 7:
+                    speed = 700000;
+                    break;
+                case 8:
+                    speed = 800000;
+                    break;
+                case 9:
+                    speed = 900000;
+                    break;
+                case 0:
                     speed = 0;
+                    break;
                 default:
                     break;
             }
@@ -59,7 +73,6 @@ int main() {
         }
     return 0;
     }
-}
 
 void initializeField(char (*field)[WIDTH]) {
     for (int i = 0; i < HEIGHT; i++) {
