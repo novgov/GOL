@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <time.h>
+#include <ncurses.h>
 
 #define WIDTH 80
 #define HEIGHT 25
@@ -29,11 +30,35 @@ int main() {
     while (1) {
         displayGame(field);
         updateGame(field, newField);
-        usleep(200000); 
-        //скорость
+        int key = getch();
+        int speed = 1000000;
+        usleep(speed); 
+        if (key >= '1' && key <= '4') {
+             int key = getch();
+        if (key >= '1' && key <= '4') {
+            switch (key) {
+                case 1:
+                    speed = 1000000;
+                    break;
+                case 2:
+                    speed = 2000000;
+                    break;
+                case 3:
+                    speed = 3000000;
+                    break;
+                case 4:
+                    speed = 9000000;
+                    break;
+                case 'p':
+                    speed = 0;
+                default:
+                    break;
+            }
+        
     }
-
+        }
     return 0;
+    }
 }
 
 void initializeField(char (*field)[WIDTH]) {
